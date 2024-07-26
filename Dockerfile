@@ -20,13 +20,16 @@ EXPOSE 5000
 FROM node:16 AS frontend
 
 # Set the working directory in the container for the frontend
-WORKDIR /app/frontend
+WORKDIR /app/frontend/src
 
-# Copy the frontend directory into the container
-COPY frontend/ ./
+# Copy package.json and package-lock.json first
+COPY frontend/src/package*.json ./
 
 # Install frontend dependencies
 RUN npm install
+
+# Copy the rest of the frontend files
+COPY frontend/src/ ./
 
 # Build the frontend
 RUN npm run build
@@ -41,7 +44,7 @@ WORKDIR /app
 COPY --from=backend /app/backend /app/backend
 
 # Copy the built frontend files from the previous stage
-COPY --from=frontend /app/frontend/build /app/frontend/build
+COPY --from=frontend /app/frontend/src/build /app/frontend/build
 
 # Expose the ports the app runs on
 EXPOSE 5000 80
