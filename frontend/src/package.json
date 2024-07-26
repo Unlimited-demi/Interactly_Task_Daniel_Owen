@@ -1,7 +1,7 @@
 {
     "name": "frontend",
     "version": "1.0.0",
-    "description": "React frontend for the Interactly_Task project",
+    "description": "React frontend for the Profile Matching project",
     "main": "src/index.js",
     "scripts": {
       "start": "react-scripts start",
@@ -15,7 +15,7 @@
       "react-scripts": "^5.0.1"
     },
     "devDependencies": {},
-    "author": "",
+    "author": "Daniel Owen",
     "license": "ISC"
   }
   
