@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from llm.generate_profiles import retrieve_profiles, generate_profiles
+from llm.rag import retrieve_profiles, generate_profiles
 
 app = Flask(__name__)
 
